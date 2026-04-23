@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Election Process Education | Your Vote, Your Power</title>
+  <meta name="description" content="Learn about the Indian Election Process in an interactive, fun, and engaging way." />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Audio Effects -->
+  <audio id="audio-click" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3" preload="auto"></audio>
+  <audio id="audio-success" src="https://assets.mixkit.co/active_storage/sfx/1435/1435-preview.mp3" preload="auto"></audio>
+  <audio id="audio-error" src="https://assets.mixkit.co/active_storage/sfx/2955/2955-preview.mp3" preload="auto"></audio>
+
+  <!-- Login Overlay -->
+  <div id="login-overlay" class="login-overlay">
+    <div class="glass-card login-card text-center neon-border-saffron">
+      <i class="fas fa-fingerprint fa-4x color-saffron neon-text-saffron mb-4"></i>
+      <h2 class="gradient-text" style="font-size: 2.5rem; margin-top: 15px;">Voter Portal 🇮🇳</h2>
+      <p style="margin-bottom: 20px; color: #aaa;">Initialize your dashboard access.</p>
+      <input type="text" id="user-name-input" placeholder="Enter Full Name" class="login-input" autocomplete="off" />
+      <button class="cta-btn mt-4 w-100" id="login-btn">Initialize Dashboard <i class="fas fa-power-off"></i></button>
+      <p id="login-error" class="color-saffron hidden mt-4" style="font-size: 0.9rem;">Authentication Failed: Name Required!</p>
+    </div>
+  </div>
+
+  <!-- Animated Background -->
+  <div class="dashboard-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <div class="dashboard-layout hidden" id="main-dashboard">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar glass-panel">
+      <div class="sidebar-header">
+        <div class="user-profile">
+          <div class="avatar"><i class="fas fa-user"></i></div>
+          <div class="user-info">
+            <span class="user-name" id="sidebar-name">User</span>
+            <span class="user-status"><i class="fas fa-circle color-green"></i> Verified Voter</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="nav-links">
+        <button class="nav-item active" data-target="tab-overview">
+          <i class="fas fa-chart-pie"></i> <span>Overview</span>
+        </button>
+        <button class="nav-item" data-target="tab-learn">
+          <i class="fas fa-book-reader"></i> <span>Learn Protocol</span>
+        </button>
+        <button class="nav-item" data-target="tab-play">
+          <i class="fas fa-gamepad"></i> <span>Simulation Zone</span>
+        </button>
+        <button class="nav-item" data-target="tab-certify">
+          <i class="fas fa-award"></i> <span>Certification</span>
+        </button>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="readiness-meter">
+          <p>Readiness Score</p>
+          <div class="meter-bar"><div class="meter-fill" id="readiness-fill"></div></div>
+        </div>
+        <p style="font-size: 0.7rem; color: #666; margin-top: 10px; text-align: center;">Promptwar v1.0 • 2026</p>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- Top Bar / News Ticker -->
+      <header class="top-bar glass-panel">
+        <div class="ticker-wrap">
+          <div class="ticker">
+            <span class="ticker-item"><strong class="color-saffron">LIVE:</strong> Election Commission announces new digital initiatives for 2026.</span>
+            <span class="ticker-item"><strong class="color-green">FACT:</strong> Over 960 Million voters participated in the last general elections.</span>
+            <span class="ticker-item"><strong class="color-white">UPDATE:</strong> VVPAT verification process streamlined for faster voting.</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="tab-content-container">
+        
+        <!-- TAB 1: OVERVIEW -->
+        <section id="tab-overview" class="tab-pane active fade-in">
+          <div class="dashboard-header mb-4">
+            <h1 class="gradient-text">Command Center</h1>
+            <p>Welcome to the Election Process Educational Terminal.</p>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card glass-card neon-border-saffron">
+              <i class="fas fa-users fa-2x color-saffron"></i>
+              <h3>Total Voters</h3>
+              <p class="stat-number">968M+</p>
+              <span class="stat-trend color-green"><i class="fas fa-arrow-up"></i> 8% Increase</span>
+            </div>
+            <div class="stat-card glass-card neon-border-white">
+              <i class="fas fa-person-booth fa-2x color-white"></i>
+              <h3>Polling Booths</h3>
+              <p class="stat-number">1.05M</p>
+              <span class="stat-trend color-green">Across India</span>
+            </div>
+            <div class="stat-card glass-card neon-border-green">
+              <i class="fas fa-laptop-code fa-2x color-green"></i>
+              <h3>EVM Machines</h3>
+              <p class="stat-number">5.5M</p>
+              <span class="stat-trend color-green"><i class="fas fa-check-circle"></i> 100% Secured</span>
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col glass-card">
+              <h2 style="margin-bottom: 15px;"><i class="fas fa-landmark color-saffron"></i> Democracy Matrix</h2>
+              <p style="color: #ccc; margin-bottom: 10px;">"Democracy is of the people, by the people, for the people."</p>
+              <p>The Election Commission of India (ECI) acts as the central processor, ensuring the democratic algorithm runs without interference.</p>
+              <button class="cta-btn mt-4 nav-trigger" data-target="tab-learn">Initialize Learning Module <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 2: LEARN -->
+        <section id="tab-learn" class="tab-pane fade-in">
+          <h2 class="gradient-text mb-4">Learning Protocol</h2>
+          
+          <!-- ECI Guidelines -->
+          <div class="glass-card mb-4 neon-border-saffron">
+            <h3><i class="fas fa-scroll color-saffron"></i> ECI Official Directives</h3>
+            <div class="guidelines-grid mt-4">
+              <div class="guide-item">
+                <i class="fas fa-id-card color-saffron"></i>
+                <div><strong>Identity Proof</strong><br><span style="font-size:0.9rem; color:#aaa;">EPIC or Aadhaar Mandatory</span></div>
+              </div>
+              <div class="guide-item">
+                <i class="fas fa-mobile-alt color-saffron"></i>
+                <div><strong>No Electronics</strong><br><span style="font-size:0.9rem; color:#aaa;">Strictly prohibited inside booth</span></div>
+              </div>
+              <div class="guide-item">
+                <i class="fas fa-clock color-saffron"></i>
+                <div><strong>Timings</strong><br><span style="font-size:0.9rem; color:#aaa;">Usually 7 AM to 6 PM</span></div>
+              </div>
+              <div class="guide-item">
+                <i class="fas fa-wheelchair color-saffron"></i>
+                <div><strong>Accessibility</strong><br><span style="font-size:0.9rem; color:#aaa;">Priority for PwD & Seniors</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline -->
+          <h3 class="mb-4 mt-4">Election Phase Timeline</h3>
+          <div class="timeline" id="timeline-container">
+            <!-- JS Injected -->
+          </div>
+
+          <!-- Election Types Grid -->
+          <h3 class="mb-4 mt-4">Structural Branches</h3>
+          <div class="card-grid">
+            <div class="glass-card hover-card border-left-saffron">
+              <h3>Lok Sabha</h3>
+              <p style="font-size: 0.9rem;">National level. Elects Members of Parliament (MPs). Majority forms Central Govt.</p>
+            </div>
+            <div class="glass-card hover-card border-left-white">
+              <h3>Rajya Sabha</h3>
+              <p style="font-size: 0.9rem;">Upper house. Indirectly elected by State MLAs. Continuous chamber.</p>
+            </div>
+            <div class="glass-card hover-card border-left-green">
+              <h3>State Assembly</h3>
+              <p style="font-size: 0.9rem;">State level. Elects Members of Legislative Assembly (MLAs) for State Govt.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 3: PLAY (Simulation & Fake News & EVM) -->
+        <section id="tab-play" class="tab-pane fade-in">
+          <h2 class="gradient-text mb-4">Simulation Zone</h2>
+
+          <!-- EVM Tech Demo -->
+          <div class="glass-card neon-border-green mb-4">
+            <h3 class="mb-4"><i class="fas fa-microchip color-green"></i> Hardware Demo: EVM + VVPAT</h3>
+            <div class="evm-container">
+              <div class="evm-visual">
+                <div class="evm-machine">
+                  <h4>Ballot Unit</h4>
+                  <div class="evm-buttons">
+                    <div class="btn-row"><span>Alpha Party</span><button class="vote-btn sound-click" aria-label="Vote Alpha"></button></div>
+                    <div class="btn-row"><span>Beta Party</span><button class="vote-btn sound-click" aria-label="Vote Beta"></button></div>
+                    <div class="btn-row"><span>NOTA</span><button class="vote-btn sound-click" aria-label="Vote NOTA"></button></div>
+                  </div>
+                </div>
+                <div class="vvpat-machine">
+                  <h4>VVPAT Unit</h4>
+                  <div class="vvpat-window" id="vvpat-window">
+                    <p class="blink">Standby...</p>
+                  </div>
+                </div>
+              </div>
+              <div class="evm-text">
+                <p>Execute your vote on the Ballot Unit. The VVPAT will generate an audit slip visible for 7 seconds to cryptographically verify your choice.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="split-grid">
+            <!-- Voter Sim -->
+            <div class="glass-card" id="sim-container">
+               <!-- JS Injected -->
+            </div>
+            
+            <!-- Fake News -->
+            <div class="glass-card neon-border-saffron" id="fake-container">
+               <!-- JS Injected -->
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 4: CERTIFY (Quiz) -->
+        <section id="tab-certify" class="tab-pane fade-in">
+          <h2 class="gradient-text mb-4">Certification Protocol</h2>
+          <p class="mb-4" style="color:#ccc;">Complete the 50-question master assessment. Score >75% to unlock authorization.</p>
+          
+          <div class="glass-card quiz-card neon-border-white" id="quiz-container">
+            <!-- JS Injected -->
+          </div>
+
+          <!-- Certificate hidden by default -->
+          <div class="certificate-section hidden mt-4" id="certificate-section">
+            <div class="glass-card cert-card text-center neon-border-green">
+              <h2><i class="fas fa-shield-check color-green"></i> Protocol Authorized</h2>
+              <div class="certificate-box mt-4" id="certificate-box">
+                <div class="cert-watermark"><i class="fas fa-award"></i></div>
+                <h3 style="color: #333;">CERTIFICATE OF DEMOCRATIC EXCELLENCE</h3>
+                <p style="color: #555;">PROMPTWAR EDITION</p>
+                <div style="margin: 30px 0;">
+                  <p style="color: #666; font-size: 0.9rem;">This verifies that</p>
+                  <h4 id="cert-name" style="font-size: 2.5rem; color: #138808; border-bottom: 2px solid #ccc; display: inline-block; padding: 0 20px;">User Name</h4>
+                </div>
+                <p style="color: #555; max-width: 80%; margin: 0 auto; font-style: italic;">has successfully completed the Election Process Simulation and demonstrated superior knowledge of democratic protocols.</p>
+                <div class="stamp"><i class="fas fa-check-circle color-green fa-3x"></i><br><span style="font-size:0.7rem; color:#333; font-weight:bold;">VERIFIED</span></div>
+              </div>
+              <button class="cta-btn mt-4 sound-click" onclick="window.print()"><i class="fas fa-print"></i> Export Certificate</button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
